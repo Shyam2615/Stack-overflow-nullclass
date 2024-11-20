@@ -20,7 +20,7 @@ const ProfileBio = ({ currentProfile }) => {
     const fetchBadges = async () => {
         if (!currentProfile?._id) return;
         try {
-            const response = await axios.get(`http://localhost:5000/answers/getbadges/${currentProfile._id}`);
+            const response = await axios.get(`https://stack-overflow-nullclass-backend.onrender.com/answers/getbadges/${currentProfile._id}`);
             setBadge(response.data.badge);
         } catch (error) {
             console.error("Error fetching badges", error);
@@ -34,7 +34,7 @@ const ProfileBio = ({ currentProfile }) => {
     // Handle user search
     const handleSearch = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/user/search?query=${searchQuery}`, {
+            const response = await axios.get(`https://stack-overflow-nullclass-backend.onrender.com/user/search?query=${searchQuery}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setSearchResults(response.data);
@@ -52,7 +52,7 @@ const ProfileBio = ({ currentProfile }) => {
 
         try {
             const response = await axios.post(
-                "http://localhost:5000/answers/transfer",
+                "https://stack-overflow-nullclass-backend.onrender.com/answers/transfer",
                 { toUserId, points },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

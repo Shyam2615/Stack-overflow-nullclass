@@ -18,7 +18,7 @@ const PublicSpace = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/posts/');
+        const response = await axios.get('https://stack-overflow-nullclass-backend.onrender.com/posts/');
         setPosts(response.data);
         console.log(posts)
         console.log("Token", token)
@@ -64,7 +64,7 @@ const PublicSpace = () => {
     console.log(bodyData)
 
     try {
-      const response = await fetch('http://localhost:5000/posts/', {
+      const response = await fetch('https://stack-overflow-nullclass-backend.onrender.com/posts/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

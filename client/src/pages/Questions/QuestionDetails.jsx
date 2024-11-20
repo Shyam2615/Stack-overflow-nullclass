@@ -94,7 +94,7 @@ function QuestionDetails() {
                 alert("Enter an answer before submitting!!");
             } else {
                 try {
-                    const response = await fetch(`http://localhost:5000/answers/post/${id}`, {
+                    const response = await fetch(`https://stack-overflow-nullclass-backend.onrender.com/answers/post/${id}`, {
                         method: "PATCH",
                         headers: {
                             "Content-Type": "application/json",

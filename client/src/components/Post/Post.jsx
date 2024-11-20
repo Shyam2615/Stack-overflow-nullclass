@@ -23,7 +23,7 @@ const Post = ({ post }) => {
 
     const fetchFollowStatus = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/posts/follow-status/${post.userId}`, {
+        const response = await fetch(`https://stack-overflow-nullclass-backend.onrender.com/posts/follow-status/${post.userId}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const data = await response.json();
@@ -40,7 +40,7 @@ const Post = ({ post }) => {
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/user/GetUserById/${post.userId}`);
+      const response = await fetch(`https://stack-overflow-nullclass-backend.onrender.com/user/GetUserById/${post.userId}`);
       const data = await response.json();
       setUser(data.user);
     } catch (error) {
@@ -50,7 +50,7 @@ const Post = ({ post }) => {
 
   const handleFollowToggle = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/posts/${isFollowing ? "unfollow" : "follow"}/${post.userId}`, {
+      const response = await fetch(`https://stack-overflow-nullclass-backend.onrender.com/posts/${isFollowing ? "unfollow" : "follow"}/${post.userId}`, {
         method: "PUT",
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -62,7 +62,7 @@ const Post = ({ post }) => {
 
   const handleLike = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/posts/like/${post._id}`, {
+      const response = await fetch(`https://stack-overflow-nullclass-backend.onrender.com/posts/like/${post._id}`, {
         method: "PUT",
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -76,7 +76,7 @@ const Post = ({ post }) => {
 
   const handleDislike = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/posts/dislike/${post._id}`, {
+      const response = await fetch(`https://stack-overflow-nullclass-backend.onrender.com/posts/dislike/${post._id}`, {
         method: "PUT",
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -93,7 +93,7 @@ const Post = ({ post }) => {
     if (comment.trim() === "") return;
 
     try {
-      const response = await fetch(`http://localhost:5000/posts/comment/${post._id}`, {
+      const response = await fetch(`https://stack-overflow-nullclass-backend.onrender.com/posts/comment/${post._id}`, {
         method: "PUT",
         headers: {
           'Authorization': `Bearer ${token}`,
